@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html
+  lang="es"
+  class="no-js"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui"
+>
+  <h:head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title><ui:insert name="title"></ui:insert></title>
+    <meta name="generator" content="Bootply" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="icon" type="image/x-icon" href="img/icon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,300,500|Ubuntu+Condensed"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <h:outputStylesheet name="css/bootstrap.min.css" />
+    <h:outputStylesheet name="css/main_base.css" />
+
+    <ui:insert name="headCont">
+      <h:outputStylesheet name="css/font_ico.css" />
+      <h:outputStylesheet name="css/fontaWesome.min.css" />
+    </ui:insert>
+  </h:head>
+  <h:body>
+    <!-- navBar -->
+    <nav
+      class="navbar navbar-default navbar-fixed-top base_primary"
+      role="banner"
+    >
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            class="navbar-toggle"
+            type="button"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span> <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a
+            href="/"
+            class="navbar-brand"
+            style="display: table; padding-top: 5px; padding-bottom: 5px"
+            ><img
+              src="../resources/img/galaxy-training-logo_.png"
+              alt=""
+              height="45"
+          /></a>
+        </div>
+        <nav
+          class="collapse navbar-collapse"
+          role="navigation"
+          style="height: 70px"
+        >
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <button
+                class="navbar-account-btn"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fas fa-user-shield"></i>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                  <a href="upgrade.html">
+                    <h5 class="navbar-upgrade-heading">
+                      Administrador
+                      <small
+                        class="navbar-upgrade-notification"
+                        id="date_text"
+                      ></small>
+                    </h5>
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li class="navbar-upgrade-version">Version: 1.0.0</li>
+                <li class="divider"></li>
+                <li><a href="#">Cambiar Clave</a></li>
+                <li>
+                  <h:form class="cerrarSesion">
+                    <p:commandLink
+                      value="Cerrar sesión"
+                      action="#{loginMB.cerrarSesionx()}"
+                      styleClass="hover-text-danger"
+                    />
+                  </h:form>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </nav>
+
+    <!--main-->
+    <div
+      class="container base_fondo_fff"
+      style="
+        min-height: 600px;
+        border-radius: 4px;
+        margin-top: 35px;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+      "
+    >
+      <div class="row">
+        <!--left-->
+        <div class="col-md-2" id="leftCol">
+          <ul class="nav nav-stacked" id="sidebar">
+            <li class="nav-item" id="sidebar-1">
+              <a
+                class="nav-link"
+                href="#{request.contextPath}/inicio/panel.xhtml"
+              >
+                <i class="fas fa-home"></i> Inicio
+              </a>
+            </li>
+            <li class="nav-item" id="sidebar-2">
+              <a
+                class="nav-link"
+                href="#{request.contextPath}/maestros/producto_listado.xhtml"
+              >
+                <i class="fas fa-box"></i> Productos
+              </a>
+            </li>
+
+            <li class="nav-item" id="sidebar-3">
+              <a
+                class="nav-link"
+                href="#{request.contextPath}/seguridad/usuario_listado.xhtml"
+              >
+                <i class="fas fa-users"></i> Usuarios
+              </a>
+            </li>
+            
+             <li class="nav-item" id="sidebar-4">
+              <a
+                class="nav-link"
+                href="#{request.contextPath}/maestros/cliente_listado.xhtml"
+              >
+                <i class="fas fa-user"></i> Clientes
+              </a>
+            </li>
+
+            <li class="nav-item" id="sidebar-5">
+              <a
+                class="nav-link"
+                href="#{request.contextPath}/maestros/cliente_registro.xhtml"
+              >
+                <i class="fas fa-user-plus"></i> Registro-Cli
+              </a>
+            </li>
+            
+             <li class="nav-item" id="sidebar-6">
+              <a
+                class="nav-link"
+                href="#{request.contextPath}/procesos/pedido_registro.xhtml"
+              >
+                <i class="fas fa-clipboard-list"></i> Pedido-Reg
+              </a>
+            </li>
+
+          </ul>
+        </div>
+        <!--/left-->
+
+        <!--right-->
+        <div class="col-md-10" style="padding-right: 30px">
+          <h2 id="sec0" class="title-style">
+            <ui:insert name="titleCont">Titulo</ui:insert>
+          </h2>
+
+          <!-- seccion para el contenido -->
+          <ui:insert name="content"> </ui:insert>
+        </div>
+        <!--/right-->
+      </div>
+      <!--/row-->
+    </div>
+    <!--/container-->
+    <!-- <h:outputScript name="js/jquery.min.js"/> -->
+    <h:outputScript name="js/bootstrap.min.js" />
+    <h:outputScript name="js/scripts.js" />
+    <h:outputScript name="js/fontawesome.min.js" />
+    <ui:insert name="footerCont"></ui:insert>
+  </h:body>
+</html>
